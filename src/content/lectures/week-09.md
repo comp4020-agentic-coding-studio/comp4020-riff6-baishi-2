@@ -10,6 +10,10 @@ teachers:
   - naledi-osei
 related:
   - sessions/09-the-tell-begins
+image: ./week-09.avif
+imageAlt:
+  A GAN-generated portrait of a man who does not exist — a synthetic face
+  with no real person behind it, used to illustrate what these models produce
 ---
 
 A generative model producing a convincing face or voice hasn't learned

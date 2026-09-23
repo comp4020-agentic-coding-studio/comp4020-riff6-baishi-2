@@ -10,6 +10,13 @@ teachers:
 related:
   - sessions/10-the-tell-work-time
   - assessments/the-tell
+image: ./week-10.avif
+imageAlt:
+  A pipeline diagram of an audio deepfake detector — real and fake-generated
+  recordings feeding a feature extractor, a training process, and a
+  real-or-fake classifier
+imageCredit:
+  Diagram by Antonelse, CC BY-SA 4.0
 ---
 
 Detection tooling for synthetic video and audio mostly works the way

@@ -9,6 +9,10 @@ teachers:
   - petra-voss
 related:
   - assessments/the-convincing-copy
+image: ./week-06.avif
+imageAlt:
+  A 1779 Continental Currency fifty-five dollar note, with its engraved leaf
+  border, red counterfeit-deterrent overprint and handwritten serial details
 ---
 
 No object on earth has had more design attention paid to defeating its own

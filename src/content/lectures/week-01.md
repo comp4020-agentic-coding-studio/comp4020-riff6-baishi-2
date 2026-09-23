@@ -10,6 +10,11 @@ teachers:
 slides: /decks/week-01/
 related:
   - sessions/01-getting-started
+image: ./week-01.avif
+imageAlt:
+  A detail from a Japanese hanging scroll painting catalogued by a museum as a
+  forgery — a robe patterned with crane roundels, rendered in the style of an
+  Edo-period print
 ---
 
 A copy and a forgery are not the same object under two names — a copy declares

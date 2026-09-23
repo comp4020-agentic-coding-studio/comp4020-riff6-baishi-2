@@ -9,6 +9,10 @@ teachers:
   - petra-voss
 related:
   - assessments/provenance
+image: ./week-11.avif
+imageAlt:
+  A 19th-century hand-coloured engraving of Christie's auction room, crowded
+  with bidders under paintings hung floor to ceiling
 ---
 
 Everything the semester has covered so far treats authenticity as a question

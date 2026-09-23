@@ -9,6 +9,10 @@ teachers:
   - petra-voss
 related:
   - assessments/the-tell
+image: ./week-08.avif
+imageAlt:
+  A close-up of syntax-highlighted source code on a monitor, shot at an angle
+  with the screen's other windows blurred in the background
 ---
 
 Software has its own forms of forgery, and they behave surprisingly like the

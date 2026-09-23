@@ -9,6 +9,10 @@ teachers:
   - anselm-rook
 related:
   - sessions/03-materials-and-marks
+image: ./week-03.avif
+imageAlt:
+  A still-life study of an artist's tools pinned to a wooden wall — a loaded
+  palette, a fan of brushes, a folded print and a small dark portrait
 ---
 
 An eye can be trained; a canvas can be aged by hand; a signature can be

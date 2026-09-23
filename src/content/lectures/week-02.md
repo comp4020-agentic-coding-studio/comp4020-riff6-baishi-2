@@ -10,6 +10,11 @@ teachers:
 related:
   - sessions/02-first-review
   - assessments/the-convincing-copy
+image: ./week-02.avif
+imageAlt:
+  A 17th-century painting titled "Connoisseurs at a Gallery" by Hieronymus
+  Francken II, showing collectors clustered before a wall crowded with
+  paintings, examining and discussing the works
 ---
 
 Connoisseurship gets talked about as if it were a sixth sense — an expert

@@ -9,6 +9,10 @@ teachers:
   - petra-voss
 related:
   - sessions/05-copying-a-hand
+image: ./week-05.avif
+imageAlt:
+  A handwritten 1884 letter on Société de Géographie letterhead, closing with
+  a looping personal signature above the sender's address
 ---
 
 A signature is the smallest forgery most people ever attempt, and the

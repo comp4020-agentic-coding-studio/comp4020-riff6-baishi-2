@@ -10,6 +10,12 @@ teachers:
 related:
   - sessions/07-the-convincing-copy-crit
   - assessments/provenance
+image: ./week-07.avif
+imageAlt:
+  A page from an antique handwritten ledger, itemising expenses in fading ink
+  with a running column of totals down the right margin
+imageCredit: >-
+  "Old Ledger" by peagreengirl, CC BY 2.0
 ---
 
 A painting with a documented, unbroken chain of ownership back to the artist's
