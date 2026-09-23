@@ -13,6 +13,10 @@ photo: ./petra-voss.avif
 photoAlt:
   A stylised portrait of a person facing the viewer, a loupe held to one side, in flat
   gold and black shapes on warm cream
+aiPhoto: ./petra-voss-ai.avif
+aiPhotoAlt:
+  An AI-generated photorealistic portrait of a dark-haired woman in a dark blazer,
+  standing in a gallery in front of a framed painting
 ---
 
 Petra spent eleven years re-lining damaged canvases before a routine cleaning turned

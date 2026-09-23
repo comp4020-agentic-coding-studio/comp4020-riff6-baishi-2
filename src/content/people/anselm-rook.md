@@ -13,6 +13,10 @@ photo: ./anselm-rook.avif
 photoAlt:
   A stylised portrait of a person in three-quarter view, a pencil at the shoulder, in
   flat gold and black shapes on warm cream
+aiPhoto: ./anselm-rook-ai.avif
+aiPhotoAlt:
+  An AI-generated photorealistic portrait of a bearded man in glasses and a canvas
+  apron, standing at a workbench in a print workshop
 ---
 
 Anselm runs a small handbound-book and letterpress practice outside the university,

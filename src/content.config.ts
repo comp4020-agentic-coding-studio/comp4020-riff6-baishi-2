@@ -97,6 +97,8 @@ export const collections = {
           url: z.url().optional(),
           photo: image().optional(),
           photoAlt: z.string().trim().optional(),
+          aiPhoto: image().optional(),
+          aiPhotoAlt: z.string().trim().optional(),
           published: z.coerce.boolean().default(true),
         })
         .superRefine((person, ctx) => {
@@ -105,6 +107,13 @@ export const collections = {
               code: "custom",
               path: ["photoAlt"],
               message: "describe the photo when one is supplied",
+            });
+          }
+          if (person.aiPhoto && !person.aiPhotoAlt) {
+            ctx.addIssue({
+              code: "custom",
+              path: ["aiPhotoAlt"],
+              message: "describe the AI photo when one is supplied",
             });
           }
         }),

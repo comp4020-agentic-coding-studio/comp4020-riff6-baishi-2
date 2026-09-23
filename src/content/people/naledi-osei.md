@@ -13,6 +13,10 @@ photo: ./naledi-osei.avif
 photoAlt:
   A stylised portrait of a person facing the viewer, a scatter of pixel-glitch
   squares at the shoulder, in flat gold and black shapes on warm cream
+aiPhoto: ./naledi-osei-ai.avif
+aiPhotoAlt:
+  An AI-generated photorealistic portrait of a dark-haired woman in a blazer,
+  standing in an office in front of monitors showing waveform displays
 ---
 
 Naledi builds the detection tooling that broadcasters and archives use to flag
