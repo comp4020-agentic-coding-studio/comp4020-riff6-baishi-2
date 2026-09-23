@@ -1,0 +1,165 @@
+---
+import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
+import { siteConfig } from "../../site-config";
+
+interface Question {
+  prompt: string;
+  choices: string[];
+  correct: number;
+  explanation: string;
+}
+
+const questions: Question[] = [
+  {
+    prompt: "A painting has an unbroken chain of ownership back to the artist's studio. What is that chain of ownership called?",
+    choices: ["Provenance", "Attribution", "Connoisseurship", "Authentication"],
+    correct: 0,
+    explanation: "Provenance is the documented history of ownership — often doing more authentication work than the object itself.",
+  },
+  {
+    prompt: "Which of these is the best single reason a forged signature tends to give itself away?",
+    choices: [
+      "The ink is always the wrong colour",
+      "The stroke rhythm is copied rather than natural, drawn slowly instead of written",
+      "Forgers always misspell the name",
+      "Paper age can't be faked",
+    ],
+    correct: 1,
+    explanation: "A genuine signature is written at speed from muscle memory; a forged one is usually drawn, and that slower, more deliberate stroke rhythm is what forensic examination looks for.",
+  },
+  {
+    prompt: "In this course, what makes Assignment 1 (\"the convincing copy\") different from plagiarism?",
+    choices: [
+      "Nothing — it's the same thing",
+      "It's a declared, in-hand copy of a studied technique, submitted as your own craft demonstration",
+      "It only applies to digital work",
+      "It's graded on originality instead of technique",
+    ],
+    correct: 1,
+    explanation: "The line is authorship of the object, not resemblance to a source — a declared copy of a technique you made yourself is the assignment; an undeclared copy of someone else's labour is what integrity policy still means.",
+  },
+  {
+    prompt: "What does a GAN-based deepfake detector typically learn to classify?",
+    choices: [
+      "The file size of an image",
+      "Whether a face is smiling or not",
+      "Real recordings/images vs. machine-generated ones, from learned feature differences",
+      "The resolution of the camera used",
+    ],
+    correct: 2,
+    explanation: "A detector's feature extractor and classifier are trained on real vs. generated examples so it can flag statistical artefacts that generative models tend to leave behind.",
+  },
+  {
+    prompt: "Why do auction houses and insurers spend heavily on authentication services?",
+    choices: [
+      "It's a legal requirement with no financial motive",
+      "Attribution changes the price of an object by a large multiple, so the claim is worth verifying carefully",
+      "They're required to repaint damaged works",
+      "It has nothing to do with forgery",
+    ],
+    correct: 1,
+    explanation: "An attributed work is worth a multiple of an identical, unattributed one — which is exactly why forging the paperwork is often more lucrative (and safer) than forging the object.",
+  },
+];
+---
+
+<ContentLayout
+  title="Quiz: spotting the fake"
+  description="A five-question self-check on forgery, provenance and authenticity — the ideas from the lectures, not a graded assessment."
+  {...siteConfig}
+>
+  <p>
+    Five quick questions drawn from the lecture material. Nothing here is
+    marked — it's a self-check, not an assessment.
+  </p>
+
+  <form id="quiz-form">
+    {
+      questions.map((q, qi) => (
+        <fieldset class="quiz-question" data-correct={q.correct} data-explanation={q.explanation}>
+          <legend>{qi + 1}. {q.prompt}</legend>
+          {q.choices.map((choice, ci) => (
+            <label class="quiz-choice">
+              <input type="radio" name={`q${qi}`} value={ci} />
+              {choice}
+            </label>
+          ))}
+          <p class="quiz-feedback" hidden />
+        </fieldset>
+      ))
+    }
+    <button type="submit">Check my answers</button>
+  </form>
+
+  <p id="quiz-score" role="status" hidden></p>
+</ContentLayout>
+
+<style>
+  .quiz-question {
+    margin-block-end: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--at-border, #ccc);
+    border-radius: 0.5rem;
+  }
+
+  .quiz-choice {
+    display: block;
+    margin-block: 0.35rem;
+  }
+
+  .quiz-feedback {
+    margin-block-start: 0.5rem;
+    font-weight: bold;
+  }
+
+  .quiz-feedback.correct {
+    color: var(--at-success, #1a7f37);
+  }
+
+  .quiz-feedback.incorrect {
+    color: var(--at-danger, #c1121f);
+  }
+
+  #quiz-score {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#quiz-form");
+  const scoreEl = document.querySelector<HTMLParagraphElement>("#quiz-score");
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const fieldsets = form.querySelectorAll<HTMLFieldSetElement>(".quiz-question");
+    let correctCount = 0;
+
+    fieldsets.forEach((fieldset) => {
+      const correctIndex = Number(fieldset.dataset.correct);
+      const explanation = fieldset.dataset.explanation ?? "";
+      const selected = fieldset.querySelector<HTMLInputElement>("input[type=radio]:checked");
+      const feedback = fieldset.querySelector<HTMLParagraphElement>(".quiz-feedback");
+      if (!feedback) return;
+
+      if (!selected) {
+        feedback.hidden = false;
+        feedback.textContent = "Pick an answer to see the explanation.";
+        feedback.className = "quiz-feedback";
+        return;
+      }
+
+      const isCorrect = Number(selected.value) === correctIndex;
+      if (isCorrect) correctCount += 1;
+
+      feedback.hidden = false;
+      feedback.textContent = (isCorrect ? "Correct — " : "Not quite — ") + explanation;
+      feedback.className = isCorrect ? "quiz-feedback correct" : "quiz-feedback incorrect";
+    });
+
+    if (scoreEl) {
+      scoreEl.hidden = false;
+      scoreEl.textContent = `Score: ${correctCount} / ${fieldsets.length}`;
+    }
+  });
+</script>
